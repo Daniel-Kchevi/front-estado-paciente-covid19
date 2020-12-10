@@ -1,0 +1,57 @@
+<section class="painel">
+    <h1>Paciente</h1>
+    
+    <div>
+      <div class="container">     
+        
+            <form [formGroup]="formularioPaciente">
+                <div class="container-formario">
+                    <div class="cad1">
+                        <div>
+                            <label>Nome: </label>
+                            <input formControlName="nome">
+                        </div>
+                        <div>
+                            <label>CPF: </label>
+                            <input formControlName="cpf">
+                        </div>
+                        <div>
+                            <label>Data de nascimento: </label>
+                            <input type="date" formControlName="dtNascimento">
+                        </div>
+                        <div>
+                            <label>Telefone de contato: </label>
+                            <input formControlName="telContato">
+                        </div>
+                    </div>
+                    <div class="cad2">
+                        <div>
+                            <label>Sintomas: </label>
+                            <input formControlName="sintomas">
+                        </div>
+                        <div>
+                            <label>Data de Internação: </label>
+                            <input type="date" formControlName="dtInternacao">
+                        </div>
+                        <div>
+                            <label>Data de alta: </label>
+                            <input type="date" formControlName="dtAlta">
+                        </div>
+                        <div>
+                            <label>Status: </label>
+                            <select formControlName="status">
+                                <option value="selecione">Selecione</option>
+                                <option value="alta">Alta</option>
+                                <option value="grave">Grave</option>
+                                <option value="gravissimo">Gravíssimo</option>
+                            </select>
+                        </div>
+                    </div>   
+                </div>     
+                <div class="botao">
+                    <button mat-raised-button color="primary" type="submit" (click)="cadastrar()">Cadastrar</button>
+                </div>         
+            </form>              
+      </div>
+    </div>
+  </section>
