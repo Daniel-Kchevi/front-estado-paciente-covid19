@@ -11,3 +11,34 @@ h1{
     margin: auto;
     margin-top: 30px;
 }
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.label-status {
+    width: 100px;
+    padding: 6px;
+    display: block;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    color: rgb(71, 71, 71);
+}
+
+.label-status-saudavel {
+    background-color: rgb(0, 192, 0);
+}
+
+.label-status-estavel {
+    background-color: yellow;
+}
+
+.label-status-grave {
+    background-color: orangered;
+}
+
+.label-status-gravissimo {
+    background-color: red;
+}
