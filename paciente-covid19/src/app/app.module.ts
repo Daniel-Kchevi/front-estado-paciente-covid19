@@ -15,7 +15,6 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -36,8 +35,7 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    MatPaginatorModule,
-    MatCardModule
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
