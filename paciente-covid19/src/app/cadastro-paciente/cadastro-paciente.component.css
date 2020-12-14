@@ -1,53 +1,6 @@
-form{
+.margin-top-50{
    margin-top: 50px;
 }
-
-label{
-   font-family: system-ui;
-   display: flex;
-   line-height: 25px;
-   margin-right: 10px;
-}
-
-.container{
-   padding: 18px 60px;
-}
-
-button{
-   margin-top: 20px;
-   outline: none;
-   
-}
-
-h1{
-   color: black;
-   font-family: system-ui;
-   font-weight: 400;
-   width: 92px;
-   margin: auto;
-   margin-top: 30px;
-}
-
-input, select{
-   border: 1px solid darkgray;
-   border-radius: 4px;
-   width: 250px;
-   height: 25px;
-   outline: none;
-}
-
-.container-formario{
-   display: flex;
-   justify-content: center;
-   padding: 75px;
-}
-
-.cad1{
-   margin-right: 20px;
-}
-
-.botao{
-   width: 75.6%;
-   display: flex;
-   justify-content: flex-end;   
+.example-full-width {
+   width:  100%;
 }
