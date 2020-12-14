@@ -49,8 +49,10 @@ export class ListaPacienteComponent implements OnInit {
   }
 
   editar() {
-    this.route.navigate(['cadastro'])
-    //this.pacienteService.update(this.dataSource)
+    //this.route.navigate(['cadastro'])
+    this.pacienteService.readAll().subscribe(data=>{
+      console.log(data);
+    })
 
   }
 

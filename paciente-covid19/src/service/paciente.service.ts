@@ -4,8 +4,6 @@ import { Observable } from 'rxjs';
 import { HttpParams } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
 
-
-const baseURL = 'server/paciente';
 const urlToken = "https://adcrfiap-eval-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials";
 
 @Injectable()
@@ -14,20 +12,22 @@ export class PacienteService {
     constructor(private httpClient: HttpClient) { }
     
     readAll(): Observable<any> {
-        return this.httpClient.get(baseURL);
+        return this.httpClient.get("/api/pacientes");
       }
 
-    read(cpf): Observable<any> {
+    create(paciente:object): Observable<any> {
+        return this.httpClient.post('/api/pacientes', paciente, {responseType: 'text'});
+    }
+
+    /*read(cpf): Observable<any> {
         return this.httpClient.get(`${baseURL}/${cpf}`);
     }
 
-    create(paciente): Observable<any> {
-        return this.httpClient.post(`${baseURL}/${'pacientes'}`, paciente);
-      }
+   
 
     update(cpf, paciente): Observable<any> {
         return this.httpClient.put(`${baseURL}/${cpf}`, paciente);
-      }
+      }*/
 
 
     gerarToken(){

@@ -1,11 +1,8 @@
 {
-	"/server": {
-		"target": "https://pacientesadcr.herokuapp.com",
-		"secure": false,
-    "changeOrigin": true,
+  "/api/": {
+    "target": "https://pacientesadcr.herokuapp.com",
+    "secure": false,
     "logLevel": "debug",
-    "pathRewrite": {
-      "^/server" : ""
-    }
-	}
+    "changeOrigin": true
+  }
 }

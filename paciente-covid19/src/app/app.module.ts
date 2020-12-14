@@ -19,6 +19,8 @@ import {MatCardModule} from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http'
 import { PacienteService } from 'src/service/paciente.service';
+import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { PacienteService } from 'src/service/paciente.service';
     MatPaginatorModule,
     MatCardModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule
+    //PacienteService
   ],
   providers: [ PacienteService ],
   bootstrap: [AppComponent]
