@@ -5,12 +5,13 @@ import { CadastroPacienteComponent } from './cadastro-paciente/cadastro-paciente
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: ListaPacienteComponent
+    path: 'home', component: ListaPacienteComponent
   },
   {
-    path: 'cadastro',
-    component: CadastroPacienteComponent
+    path: 'cadastro', component: CadastroPacienteComponent
+  },
+  {
+    path: 'cadastro/:cpf', component: CadastroPacienteComponent
   }
 ];
 

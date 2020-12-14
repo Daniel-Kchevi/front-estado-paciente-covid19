@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
+import { PacienteService } from 'src/service/paciente.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-cadastro-paciente',
@@ -8,6 +10,8 @@ import { FormGroup, FormControl} from '@angular/forms';
 })
 export class CadastroPacienteComponent implements OnInit { 
  
+  constructor(private pacienteService:PacienteService){}
+
   formularioPaciente = new FormGroup({
     nome: new FormControl(),
     cpf: new FormControl(), 
@@ -24,6 +28,9 @@ export class CadastroPacienteComponent implements OnInit {
   }
  
   cadastrar(){
-    console.log(this.formularioPaciente.value);
+    this.pacienteService.create(this.formularioPaciente.value).subscribe(data=>{
+      const pacientes = data;
+      console.log(pacientes);
+    })
   }
 }

@@ -2,6 +2,7 @@ import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
+import { PacienteService } from 'src/service/paciente.service';
 
 export interface PeriodicElement {
   codigo: number;
@@ -35,7 +36,7 @@ export class ListaPacienteComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private route: Router) {
+  constructor(private route: Router, private pacienteService: PacienteService) {
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(ELEMENT_DATA);
   }
@@ -49,6 +50,8 @@ export class ListaPacienteComponent implements OnInit {
 
   editar() {
     this.route.navigate(['cadastro'])
+    //this.pacienteService.update(this.dataSource)
+
   }
 
   applyFilter(event: Event) {

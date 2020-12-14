@@ -18,7 +18,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCardModule} from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http'
-//import { PacienteService } from 'src/service/paciente.service';
+import { PacienteService } from 'src/service/paciente.service';
 
 @NgModule({
   declarations: [
@@ -43,9 +43,8 @@ import { HttpClientModule } from '@angular/common/http'
     MatCardModule,
     MatInputModule,
     HttpClientModule
-    //PacienteService
   ],
-  providers: [],
+  providers: [ PacienteService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
