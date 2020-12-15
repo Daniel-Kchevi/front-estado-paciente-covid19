@@ -5,29 +5,27 @@ import { HttpParams } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
 
 const urlToken = "https://adcrfiap-eval-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials";
-
+const baseURL = "/api/pacientes";
 @Injectable()
 export class PacienteService {
 
     constructor(private httpClient: HttpClient) { }
-    
+
     readAll(): Observable<any> {
-        return this.httpClient.get("/api/pacientes");
+        return this.httpClient.get(baseURL);
       }
 
     create(paciente:object): Observable<any> {
-        return this.httpClient.post('/api/pacientes', paciente, {responseType: 'text'});
+        return this.httpClient.post(baseURL, paciente, {responseType: 'text'});
     }
 
-    /*read(cpf): Observable<any> {
+    read(cpf:number): Observable<any> {
         return this.httpClient.get(`${baseURL}/${cpf}`);
     }
 
-   
-
-    update(cpf, paciente): Observable<any> {
+    update(cpf:number, paciente:object): Observable<any> {
         return this.httpClient.put(`${baseURL}/${cpf}`, paciente);
-      }*/
+      }
 
 
     gerarToken(){

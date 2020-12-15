@@ -20,13 +20,17 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http'
 import { PacienteService } from 'src/service/paciente.service';
 import { MatSelectModule } from '@angular/material/select';
+import { DialogOkComponent } from './dialog-ok/dialog-ok.component';
+import { EditarPacienteComponent } from './editar-paciente/editar-paciente.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaPacienteComponent,
-    CadastroPacienteComponent
+    CadastroPacienteComponent,
+    DialogOkComponent,
+    EditarPacienteComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     HttpClientModule,
     MatSelectModule
-    //PacienteService
   ],
   providers: [ PacienteService ],
   bootstrap: [AppComponent]

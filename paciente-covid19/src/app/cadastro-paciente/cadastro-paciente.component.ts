@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
 import { PacienteService } from 'src/service/paciente.service';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogOkComponent } from '../dialog-ok/dialog-ok.component';
+
 
 @Component({
   selector: 'app-cadastro-paciente',
@@ -10,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CadastroPacienteComponent implements OnInit { 
  
-  constructor(private pacienteService:PacienteService){}
+  constructor(private route: Router, private pacienteService:PacienteService, public dialog: MatDialog){}
 
   formularioPaciente = new FormGroup({
     nome: new FormControl(),
@@ -28,10 +31,15 @@ export class CadastroPacienteComponent implements OnInit {
   }
 
   cadastrar(){
-  console.log(this.formularioPaciente.value);
-   this.pacienteService.create(this.formularioPaciente.value).subscribe(data=>{
-      const pacientes = data;
-      console.log(pacientes);
-    })
+    console.log(this.formularioPaciente.value);
+    this.pacienteService.create(this.formularioPaciente.value).subscribe(data=>{
+        const pacientes = data;
+        console.log(pacientes);
+    })  
+    this.openDialog();
+  }
+
+  openDialog() {
+    this.dialog.open(DialogOkComponent);
   }
 }
