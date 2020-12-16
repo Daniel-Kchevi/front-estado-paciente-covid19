@@ -24,6 +24,7 @@ export class PacienteService {
     }
 
     update(cpf:number, paciente:object): Observable<any> {
+        console.log(cpf, paciente)
         return this.httpClient.put(`${baseURL}/${cpf}`, paciente);
       }
 

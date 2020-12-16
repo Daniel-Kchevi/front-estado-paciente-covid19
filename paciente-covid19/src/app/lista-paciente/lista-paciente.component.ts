@@ -29,11 +29,8 @@ export class ListaPacienteComponent implements OnInit {
     this.retornaListaPacientes();
   }
 
-  editar(cpf:number) {//
-    //this.route.navigate(['cadastro'])
-    this.pacienteService.read(cpf).subscribe(data=>{
-      console.log(data);
-    })
+  editar(cpf:number) {
+    this.route.navigate(['editar', cpf]);    
   }
 
   retornaListaPacientes(){
