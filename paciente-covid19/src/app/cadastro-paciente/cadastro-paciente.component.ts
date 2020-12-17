@@ -26,8 +26,7 @@ export class CadastroPacienteComponent implements OnInit {
     status: new FormControl('selecione')
   });
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {    
   }
 
   cadastrar(){

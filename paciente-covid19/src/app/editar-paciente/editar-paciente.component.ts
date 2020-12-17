@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PacienteService } from 'src/service/paciente.service';
 import { FormGroup, FormControl} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogOkComponent } from '../dialog-ok/dialog-ok.component';
 
 @Component({
   selector: 'app-editar-paciente',
@@ -10,9 +12,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class EditarPacienteComponent implements OnInit {
 
-  constructor(private pacienteService:PacienteService, private routeActivite : ActivatedRoute , private route: Router) { }
+  loader: Boolean = false;
 
-  idPaciente : number;
+  constructor(private pacienteService:PacienteService, private routeActivite : ActivatedRoute,
+     private route: Router, public dialog: MatDialog) { }
 
   formularioEditarPaciente = new FormGroup({
     id: new FormControl(),
@@ -31,10 +34,11 @@ export class EditarPacienteComponent implements OnInit {
     this.routeActivite.paramMap.subscribe((param: any)=>{
       const id = param.get('id');
       if(id){
+        this.loader=true;
         this.pacienteService.read(id).subscribe(data=>{             
           console.log(data); 
           this.carregaObjeto(data);
-          this.idPaciente=id;
+          this.loader=false;
         })
       }
     })  
@@ -53,9 +57,27 @@ export class EditarPacienteComponent implements OnInit {
   }
 
   Atualizar() {
-    console.log(this.formularioEditarPaciente.value)  
-    let id = this.formularioEditarPaciente.get('id');
-    this.pacienteService.update(this.idPaciente, this.formularioEditarPaciente.value);  
+     if(this.validarCampos()){
+       this.pacienteService.update
+       (this.formularioEditarPaciente.value.cpf, this.formularioEditarPaciente.value)
+       .subscribe(data=>{
+       })  
+      this.dialog.open(DialogOkComponent);
+     }
   }
 
+  validarCampos(){
+    if(this.formularioEditarPaciente.value.nome==""
+    ||this.formularioEditarPaciente.value.cpf==""
+    ||this.formularioEditarPaciente.value.dataNascimento==""
+    ||this.formularioEditarPaciente.value.telefoneContato==""
+    ||this.formularioEditarPaciente.value.dataInternacao==""
+    ||this.formularioEditarPaciente.value.sintomas==""
+    ||this.formularioEditarPaciente.value.status==""){
+      console.log('campos vazios')
+      return false;
+    }else{
+      return true;
+    }
+  }
 }

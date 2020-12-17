@@ -22,7 +22,7 @@ import { PacienteService } from 'src/service/paciente.service';
 import { MatSelectModule } from '@angular/material/select';
 import { DialogOkComponent } from './dialog-ok/dialog-ok.component';
 import { EditarPacienteComponent } from './editar-paciente/editar-paciente.component';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,8 @@ import { EditarPacienteComponent } from './editar-paciente/editar-paciente.compo
     MatCardModule,
     MatInputModule,
     HttpClientModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [ PacienteService ],
   bootstrap: [AppComponent]

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpParams } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
 
-const urlToken = "https://adcrfiap-eval-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials";
+const urlToken = "/token/oauth/client_credential/accesstoken?grant_type=client_credentials";
 const baseURL = "/api/pacientes";
 @Injectable()
 export class PacienteService {
@@ -25,7 +25,7 @@ export class PacienteService {
 
     update(cpf:number, paciente:object): Observable<any> {
         console.log(cpf, paciente)
-        return this.httpClient.put(`${baseURL}/${cpf}`, paciente);
+        return this.httpClient.put(`${baseURL}/${cpf}`, paciente, {responseType: 'text'});
       }
 
 
@@ -33,7 +33,8 @@ export class PacienteService {
         const body = new HttpParams()
           .set('client_id', "NFoPG1vaqegNZkaZ9MGmr0lv9aOHseIf")
           .set('client_secret', "SrcnF3iA32G34AHe");
-
+        console.log(urlToken);
+        console.log(body);
         return this.httpClient.post(urlToken, body.toString(), {
             headers: new HttpHeaders()
               .set('Content-Type', 'application/x-www-form-urlencoded')

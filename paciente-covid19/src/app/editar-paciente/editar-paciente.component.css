@@ -4,3 +4,11 @@
  .example-full-width {
     width:  100%;
  }
+
+ .topo{
+   display: flex;
+ }
+
+.topo h1{
+   margin-right: 20px;
+}

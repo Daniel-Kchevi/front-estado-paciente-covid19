@@ -4,5 +4,13 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
+  },
+  
+  "/token/": {
+    "target": "https://adcrfiap-eval-test.apigee.net",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }
+

@@ -26,6 +26,9 @@ export class ListaPacienteComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.pacienteService.gerarToken().subscribe(data=>{
+      console.log(data);
+    });
     this.retornaListaPacientes();
   }
 
@@ -37,7 +40,6 @@ export class ListaPacienteComponent implements OnInit {
     this.pacienteService.readAll().subscribe(data=>{
       console.log(data);
       this.dataSource.data=data;
-
     })
   }
 
