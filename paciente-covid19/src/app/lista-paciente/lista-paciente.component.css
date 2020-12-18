@@ -3,15 +3,6 @@ table {
     width: 100%;
 }
 
-h1{
-    color: black;
-    font-family: system-ui;
-    font-weight: 400;
-    width: 360px;
-    margin: auto;
-    margin-top: 30px;
-}
-
 .mat-form-field {
     font-size: 14px;
     width: 100%;
@@ -42,3 +33,16 @@ h1{
 .label-status-gravissimo {
     background-color: red;
 }
+
+.topo{
+    display: flex;
+  }
+ 
+ .topo h1{
+    color: black;
+    font-family: system-ui;
+    font-weight: 400;
+    width: 360px;
+    margin: auto;
+    margin-top: 30px;
+ }

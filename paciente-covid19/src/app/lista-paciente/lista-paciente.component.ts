@@ -15,10 +15,11 @@ export class ListaPacienteComponent implements OnInit {
   displayedColumns: string[] = ['cpf', 'nome', 'dataInternacao', 'status', 'detalhes'];
   dataSource = new MatTableDataSource([]);
 
+  loader: Boolean = false;
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private route: Router, private pacienteService: PacienteService) {
-    // Assign the data to the data source for the table to render
   }
 
   ngAfterViewInit() {
@@ -26,10 +27,23 @@ export class ListaPacienteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pacienteService.gerarToken().subscribe(data=>{
-      console.log(data);
+    this.token();   
+    if(this.retornaListaPacientes()!=null){
+      this.loader=true;
+      this.retornaListaPacientes()
+    }
+  }
+
+  verificaExistenciaToken():Boolean{
+    const tokenStorange = localStorage.getItem('access-token');
+    if(tokenStorange)return true;
+    return false;
+  }
+
+  token(){    
+    this.pacienteService.gerarToken().subscribe((data:any)=>{
+      localStorage.setItem('access-token', data.access_token);
     });
-    this.retornaListaPacientes();
   }
 
   editar(cpf:number) {
@@ -37,11 +51,16 @@ export class ListaPacienteComponent implements OnInit {
   }
 
   retornaListaPacientes(){
-    this.pacienteService.readAll().subscribe(data=>{
-      console.log(data);
-      this.dataSource.data=data;
-    })
-  }
+    
+      this.pacienteService.readAll().subscribe(data=>{
+        this.dataSource.data=data;
+      }, e=>{
+        if(e.statusText=='Unauthorized'){
+          localStorage.removeItem('access-token');
+          this.route.navigate(['home']);  
+        }
+      })      
+  }    
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

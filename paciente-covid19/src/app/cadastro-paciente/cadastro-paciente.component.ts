@@ -33,7 +33,6 @@ export class CadastroPacienteComponent implements OnInit {
     console.log(this.formularioPaciente.value);
     this.pacienteService.create(this.formularioPaciente.value).subscribe(data=>{
         const pacientes = data;
-        console.log(pacientes);
     })  
     this.openDialog();
   }

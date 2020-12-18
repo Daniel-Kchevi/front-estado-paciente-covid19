@@ -1,6 +1,10 @@
 <div class="container">
   
-  <h1>Controle de pacientes - Covid 19</h1>
+  
+  <div class="topo">
+    <h1>Controle de pacientes - Covid 19</h1>
+    <mat-spinner diameter="30" *ngIf="loader"></mat-spinner>
+</div> 
 
   <mat-form-field>
     <mat-label>Filtro</mat-label>

@@ -35,8 +35,7 @@ export class EditarPacienteComponent implements OnInit {
       const id = param.get('id');
       if(id){
         this.loader=true;
-        this.pacienteService.read(id).subscribe(data=>{             
-          console.log(data); 
+        this.pacienteService.read(id).subscribe(data=>{    
           this.carregaObjeto(data);
           this.loader=false;
         })
