@@ -15,6 +15,8 @@ git clone https://github.com/adcrfiap/front-estado-paciente-covid19.git
 
 ### Instalando/Configurando
 
+Todas os comandos abaixo devem ser feitos dentro da pasta paciente-covid19/
+
 Instalando as dependências do projeto
 ```
 npm install
