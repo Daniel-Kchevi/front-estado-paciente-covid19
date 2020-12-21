@@ -1,4 +1,4 @@
-# Paciente COVID19
+# Pacientes COVID19
 
 Painel web que exibe os pacientes a suas situações referente ao COVID.
 
