@@ -2,7 +2,7 @@
 
 Painel web que exibe os pacientes a suas situações referente ao COVID.
 
-## Começando
+### Começando
 
 Clonar este repositório utilizando o comando `git clone https://github.com/adcrfiap/front-estado-paciente-covid19.git`
 
